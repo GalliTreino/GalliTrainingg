@@ -23,10 +23,12 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, var(--bg-black) 0%, var(--bg-dark) 50%, var(--bg-black) 100%);
-  color: var(--text-white);
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  color: #ffffff;
   min-height: 100vh;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .background {
@@ -43,10 +45,11 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 400px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
+  padding: 20px;
 }
 
 .icon {
@@ -87,14 +90,10 @@ body {
 
 .login-card {
   background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
-  border: 1px solid var(--border-gold);
+  border: 1px solid rgba(255, 215, 0, 0.2);
   border-radius: 16px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   position: relative;
-  max-width: 480px;
-  width: 100%;
 }
 
 .login-card::before {
@@ -104,7 +103,7 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #ffd700 50%, transparent 100%);
 }
 
 .card-header {
@@ -115,7 +114,7 @@ body {
 .icon-container {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -127,7 +126,7 @@ body {
 .icon-container .icon {
   width: 32px;
   height: 32px;
-  color: var(--bg-black);
+  color: #000000;
 }
 
 @keyframes pulse {
@@ -144,16 +143,15 @@ body {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .subtitle {
-  color: var(--text-gray);
+  color: #cccccc;
   font-size: 16px;
-  line-height: 1.5;
 }
 
 .card-content {
@@ -169,49 +167,42 @@ body {
   width: 100%;
   padding: 16px 20px;
   background: rgba(34, 34, 34, 0.5);
-  border: 1px solid var(--bg-gray-light);
+  border: 1px solid #222222;
   border-radius: 12px;
-  color: var(--text-white);
+  color: #ffffff;
   font-size: 16px;
-  transition: all 0.3s ease;
+  margin-bottom: 24px;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .input-field::placeholder {
-  color: var(--text-gray-dark);
+  color: #888888;
 }
 
 .input-field:focus {
-  border-color: var(--primary-gold);
+  border-color: #ffd700;
   box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
-  background: rgba(34, 34, 34, 0.8);
 }
 
 /* Button */
 .btn {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
-  color: var(--bg-black);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+  color: #000000;
   border: none;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
+  margin-bottom: 24px;
 }
 
 .btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--primary-gold-dark) 0%, #ff8c00 100%);
+  background: linear-gradient(135deg, #e6c200 0%, #ff8c00 100%);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
 }
 
 .btn:disabled {
@@ -222,16 +213,16 @@ body {
 
 .btn-logout {
   background: transparent;
-  border: 1px solid rgba(239, 68, 68, 0.5);
+  border: 1px solid #ef4444;
   color: #ef4444;
   padding: 8px 16px;
   font-size: 14px;
   width: auto;
+  margin: 0;
 }
 
 .btn-logout:hover {
   background: rgba(239, 68, 68, 0.1);
-  border-color: #ef4444;
 }
 
 /* Result Container */
@@ -241,14 +232,12 @@ body {
 }
 
 .alert {
-  padding: 16px 20px;
+  padding: 16px;
   border-radius: 12px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   font-size: 14px;
-  line-height: 1.5;
-  animation: slideIn 0.3s ease-out;
 }
 
 .alert-success {
@@ -263,17 +252,6 @@ body {
   color: #ef4444;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Dashboard Screen */
 .dashboard-screen {
   max-width: 800px;
@@ -282,22 +260,22 @@ body {
 
 .dashboard-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   position: relative;
 }
 
 .dashboard-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: 48px;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .dashboard-subtitle {
-  color: var(--text-gray);
+  color: #cccccc;
   font-size: 18px;
   margin-bottom: 24px;
 }
@@ -311,12 +289,11 @@ body {
 /* Success Card */
 .success-card {
   background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
-  border: 1px solid var(--border-gold);
+  border: 1px solid rgba(255, 215, 0, 0.2);
   border-radius: 16px;
   padding: 48px 32px;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 .success-card::before {
@@ -326,13 +303,13 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #ffd700 50%, transparent 100%);
 }
 
 .success-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -362,15 +339,13 @@ body {
 .success-card h3 {
   font-size: 28px;
   font-weight: 700;
-  color: var(--text-white);
+  color: #ffffff;
   margin-bottom: 16px;
 }
 
 .success-card p {
-  color: var(--text-gray);
+  color: #cccccc;
   font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 32px;
 }
 
 .success-message {
