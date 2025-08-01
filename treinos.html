@@ -37,26 +37,28 @@
           </div>
 
           <h1 class="title">AMG Pro</h1>
-          <p class="subtitle">Digite sua senha para acessar seus treinos</p>
+          <p class="subtitle">Digite o nome do seu PDF para acessar</p>
         </div>
 
         <div class="card-content">
           <div class="input-group">
             <input 
-              type="password" 
+              type="text" 
               id="senhaInput" 
-              placeholder="Digite sua senha"
+              placeholder="Nome do PDF (ex: Treino-João-Push)"
               class="input-field"
             />
           </div>
 
           <button onclick="fazerLogin()" class="btn btn-primary" id="loginBtn">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <circle cx="12" cy="16" r="1"></circle>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14,2 14,8 20,8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10,9 9,9 8,9"></polyline>
             </svg>
-            <span class="btn-text">Acessar AMG Pro</span>
+            <span class="btn-text">Validar PDF</span>
           </button>
 
           <div id="loginError" class="result-container"></div>
@@ -66,104 +68,7 @@
 
     <!-- Dashboard Screen -->
     <div id="dashboardScreen" class="dashboard-screen" style="display: none;">
-      <div class="dashboard-header">
-        <h1 class="dashboard-title">AMG Pro - Seus Treinos</h1>
-        <p class="dashboard-subtitle">Escolha o treino do dia e vamos treinar!</p>
-        <button onclick="sair()" class="btn-logout">Sair</button>
-      </div>
-
-      <div class="workouts-grid" id="workoutsGrid">
-        <!-- Treinos serão inseridos aqui via JavaScript -->
-      </div>
-
-      <div class="volume-card">
-        <h3 class="volume-title">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="6"></circle>
-            <circle cx="12" cy="12" r="2"></circle>
-          </svg>
-          Volume Semanal de Treino
-        </h3>
-        <div class="volume-grid">
-          <div class="volume-item">
-            <span class="volume-muscle">COSTAS</span>
-            <span class="volume-sets">9</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-          <div class="volume-item">
-            <span class="volume-muscle">BÍCEPS</span>
-            <span class="volume-sets">9</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-          <div class="volume-item">
-            <span class="volume-muscle">TRÍCEPS</span>
-            <span class="volume-sets">9</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-          <div class="volume-item">
-            <span class="volume-muscle">QUADRÍCEPS</span>
-            <span class="volume-sets">9</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-          <div class="volume-item">
-            <span class="volume-muscle">POSTERIOR</span>
-            <span class="volume-sets">9</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-          <div class="volume-item">
-            <span class="volume-muscle">PANTURRILHA</span>
-            <span class="volume-sets">8</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-          <div class="volume-item">
-            <span class="volume-muscle">GLÚTEOS</span>
-            <span class="volume-sets">6</span>
-            <span class="volume-label">séries/semana</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Workout Detail Screen -->
-    <div id="workoutScreen" class="workout-screen" style="display: none;">
-      <div class="workout-header">
-        <button onclick="voltarDashboard()" class="back-link">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="m12 19-7-7 7-7"></path>
-            <path d="M19 12H5"></path>
-          </svg>
-          Voltar aos treinos
-        </button>
-        <div class="workout-day-badge" id="workoutDayBadge">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          SEGUNDA
-        </div>
-      </div>
-
-      <div class="workout-content">
-        <h2 class="workout-name" id="workoutName">PUSH</h2>
-        <p class="workout-description" id="workoutDescription">Treino de segunda</p>
-        
-        <div class="exercises-container" id="exercisesContainer">
-          <!-- Exercícios serão inseridos aqui via JavaScript -->
-        </div>
-
-        <div class="workout-footer">
-          <div class="footer-message">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-            <span>Bom treino! Foque na execução correta</span>
-          </div>
-          <p class="footer-help">Sistema AMG Pro - Seus treinos organizados</p>
-        </div>
-      </div>
+      <!-- Conteúdo será inserido via JavaScript -->
     </div>
   </div>
 

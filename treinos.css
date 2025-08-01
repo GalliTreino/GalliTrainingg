@@ -26,9 +26,6 @@ body {
   background: linear-gradient(135deg, var(--bg-black) 0%, var(--bg-dark) 50%, var(--bg-black) 100%);
   color: var(--text-white);
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 20px;
 }
 
@@ -46,7 +43,8 @@ body {
 
 .container {
   width: 100%;
-  max-width: 480px;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   z-index: 10;
 }
@@ -79,8 +77,15 @@ body {
   transform: translateX(-4px);
 }
 
-/* Main Card */
-.treino-card {
+/* Login Screen */
+.login-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.login-card {
   background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
   border: 1px solid var(--border-gold);
   border-radius: 16px;
@@ -88,9 +93,11 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   position: relative;
+  max-width: 480px;
+  width: 100%;
 }
 
-.treino-card::before {
+.login-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -198,6 +205,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .btn:hover:not(:disabled) {
@@ -212,37 +220,18 @@ body {
   transform: none;
 }
 
-.btn .icon {
-  transition: transform 0.3s ease;
+.btn-logout {
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+  padding: 8px 16px;
+  font-size: 14px;
+  width: auto;
 }
 
-.btn:hover:not(:disabled) .icon {
-  transform: scale(1.1);
-}
-
-/* Loading Spinner */
-.loading-spinner {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  border-top: 2px solid var(--bg-black);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.btn-logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
 }
 
 /* Result Container */
@@ -274,11 +263,6 @@ body {
   color: #ef4444;
 }
 
-.alert .icon {
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -290,75 +274,122 @@ body {
   }
 }
 
-/* Thank You Section */
-.thank-you {
+/* Dashboard Screen */
+.dashboard-screen {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.dashboard-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.dashboard-subtitle {
+  color: var(--text-gray);
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.btn-logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Success Card */
+.success-card {
+  background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.success-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  color: var(--primary-gold);
-  font-weight: 500;
-  font-size: 14px;
-  margin: 24px 0 8px;
-  padding-top: 24px;
-  border-top: 1px solid var(--bg-gray-light);
+  margin: 0 auto 24px;
+  animation: successPulse 2s infinite;
 }
 
-.heart-icon .icon {
-  width: 16px;
-  height: 16px;
-  animation: heartbeat 2s infinite;
+.success-icon .icon {
+  width: 40px;
+  height: 40px;
+  color: white;
 }
 
-@keyframes heartbeat {
+@keyframes successPulse {
   0%,
   100% {
     transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
   }
 }
 
-.help-text {
-  text-align: center;
-  color: var(--text-gray-dark);
-  font-size: 12px;
-  line-height: 1.4;
+.success-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 16px;
 }
 
-/* Tips Card */
-.tips-card {
-  margin-top: 24px;
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
-  border: 1px solid var(--border-gold);
-  border-radius: 12px;
-  padding: 16px;
-}
-
-.tip-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.tip-icon {
-  color: var(--primary-gold);
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.tip-content h3 {
-  color: var(--primary-gold);
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.tip-content p {
+.success-card p {
   color: var(--text-gray);
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--primary-gold);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+}
+
+.success-message .icon {
+  width: 24px;
+  height: 24px;
 }
 
 /* Animations */
@@ -366,22 +397,7 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.5s ease-out 0.2s both;
-}
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -393,34 +409,36 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .container {
     padding: 0 16px;
   }
 
-  .card-header {
-    padding: 24px 24px 20px;
-  }
-
+  .card-header,
   .card-content {
-    padding: 0 24px 24px;
+    padding: 24px 20px;
   }
 
-  .title {
-    font-size: 28px;
+  .dashboard-header {
+    margin-bottom: 32px;
   }
 
-  .subtitle {
-    font-size: 14px;
+  .btn-logout {
+    position: static;
+    margin-top: 16px;
   }
 
-  .input-field {
-    padding: 14px 16px;
-    font-size: 14px;
+  .success-card {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-card h3 {
+    font-size: 24px;
   }
 
-  .btn {
-    padding: 14px 20px;
-    font-size: 14px;
+  .success-card p {
+    font-size: 16px;
   }
 }
