@@ -4,25 +4,11 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Dumbbell,
-  Clock,
-  Target,
-  Users,
-  CheckCircle,
-  MessageCircle,
-  MapPin,
-  Star,
-  Zap,
-  Trophy,
-  ArrowRight,
-  Play,
-} from "lucide-react"
+import { Dumbbell, Target, Users, CheckCircle, Star, Zap, Trophy, Play } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
-  const [scrollAnimations, setScrollAnimations] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -58,19 +44,19 @@ export default function HomePage() {
       description: "Adaptados ao seu tempo, local e objetivo específico",
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Flexibilidade Total",
-      description: "Treine quando e onde quiser, no seu ritmo",
-    },
-    {
       icon: <Users className="w-6 h-6" />,
       title: "Suporte Contínuo",
-      description: "Acompanhamento semanal e ajustes conforme evolução",
+      description: "Acompanhamento contínuo para tirar dúvidas",
     },
     {
       icon: <Trophy className="w-6 h-6" />,
-      title: "Resultados Garantidos",
-      description: "Foco em emagrecimento, hipertrofia ou condicionamento",
+      title: "Foco nos Objetivos",
+      description: "Emagrecimento, hipertrofia ou condicionamento",
+    },
+    {
+      icon: <Dumbbell className="w-6 h-6" />,
+      title: "Flexibilidade Total",
+      description: "Treinos que se adaptam à sua agenda",
     },
   ]
 
@@ -78,7 +64,7 @@ export default function HomePage() {
     "Treinos adaptados ao tempo e local que você tem",
     "Foco em emagrecimento, hipertrofia ou condicionamento",
     "Sem enrolação e com ajustes conforme sua evolução",
-    "Suporte via WhatsApp durante todo o processo",
+    "Suporte contínuo durante todo o processo",
     "Planilhas detalhadas e fáceis de seguir",
   ]
 
@@ -96,33 +82,21 @@ export default function HomePage() {
         >
           <Badge className="mb-6 bg-yellow-500/20 text-yellow-400 border-yellow-500/30 hover:bg-yellow-500/30">
             <Zap className="w-4 h-4 mr-2" />
-            Transforme sua rotina de treino
+            Consultoria online de treinos
           </Badge>
 
           <h1 className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent tracking-tight">
-            GALLI
+            AMG
             <br />
-            TRAINING
+            PRO
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A assessoria online que vai <span className="text-yellow-400 font-semibold">transformar</span> sua rotina de
-            treino com acompanhamento personalizado e resultados reais.
+            Consultoria online para <span className="text-yellow-400 font-semibold">formação de treinos</span>{" "}
+            personalizados. Acompanhamento dedicado para você alcançar seus objetivos na academia.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-8 py-6 text-lg group"
-              asChild
-            >
-              <Link href="https://wa.me/55SEUNUMERO">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Começar Agora
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-
+          <div className="flex justify-center">
             <Button
               variant="outline"
               size="lg"
@@ -142,94 +116,20 @@ export default function HomePage() {
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl animate-pulse delay-1000" />
       </section>
 
-      {/* Local de Atendimento Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center animate-on-scroll opacity-0 translate-y-10 transition-all duration-800">
-            <div>
-              <Badge className="mb-4 bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
-                <MapPin className="w-4 h-4 mr-2" />
-                Local de Atendimento
-              </Badge>
-
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Estamos disponíveis para atendimentos presenciais
-              </h2>
-
-              <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Oferecemos atendimentos presenciais nos seguintes horários:
-              </p>
-
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-4 bg-gradient-to-r from-yellow-500/10 to-transparent rounded-lg border border-yellow-500/20">
-                  <span className="text-yellow-400 font-semibold flex items-center">
-                    <Clock className="w-5 h-5 mr-2" />
-                    Manhã
-                  </span>
-                  <span className="text-white font-medium">08:00 às 12:00</span>
-                </div>
-                <div className="flex items-center justify-between p-4 bg-gradient-to-r from-yellow-500/10 to-transparent rounded-lg border border-yellow-500/20">
-                  <span className="text-yellow-400 font-semibold flex items-center">
-                    <Clock className="w-5 h-5 mr-2" />
-                    Tarde
-                  </span>
-                  <span className="text-white font-medium">14:00 às 17:00</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-3xl blur-3xl" />
-              <div className="relative">
-                <img
-                  src="/logo/file.png"
-                  alt="Local de trabalho Galli Training"
-                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border border-yellow-500/20"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quem Somos Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900/50 to-black/50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center animate-on-scroll opacity-0 translate-y-10 transition-all duration-800">
-            <Badge className="mb-4 bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
-              <Users className="w-4 h-4 mr-2" />
-              Quem Somos
-            </Badge>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Transformando vidas através do movimento
-            </h2>
-
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Somos uma equipe dedicada ao bem-estar e desenvolvimento físico de nossos alunos. O projeto foi idealizado
-              por um jovem apaixonado por treinos e saúde, atualmente cursando Educação Física, que busca transformar
-              vidas por meio do conhecimento e da motivação. Nosso objetivo é oferecer suporte personalizado para cada
-              aluno alcançar o seu melhor.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits Section */}
       <section className="py-20 bg-gradient-to-r from-gray-900/50 to-black/50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 animate-on-scroll opacity-0 translate-y-10 transition-all duration-800">
             <Badge className="mb-4 bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
-              <Star className="w-4 h-4 mr-2" />
-              Benefícios
+              <Star className="w-4 h-4 mr-2" />O que oferecemos
             </Badge>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Por que escolher a Galli Training?
+              Consultoria personalizada para seus treinos
             </h2>
 
             <p className="text-gray-300 text-xl max-w-3xl mx-auto">
-              Um acompanhamento totalmente online com treinos personalizados para você alcançar seu objetivo
+              Acompanhamento online focado em criar treinos que se adaptem à sua rotina e objetivos
             </p>
           </div>
 
@@ -259,16 +159,14 @@ export default function HomePage() {
             <div>
               <Badge className="mb-4 bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
                 <Target className="w-4 h-4 mr-2" />
-                Para quem é?
+                Para quem é
               </Badge>
 
               <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Indicado para quem quer resultado com consistência
+                Ideal para quem quer começar ou evoluir
               </h2>
 
-              <p className="text-gray-300 text-lg mb-8">
-                Se você precisa de direção no treino e quer resultados reais, este programa é para você:
-              </p>
+              <p className="text-gray-300 text-lg mb-8">Nossa consultoria é perfeita para pessoas que:</p>
 
               <div className="space-y-4">
                 {features.map((feature, index) => (
@@ -284,7 +182,9 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-3xl blur-3xl" />
               <Card className="bg-gradient-to-br from-gray-900 to-black border-yellow-500/20 p-8 relative">
                 <CardContent className="p-0 text-center">
-                  <Dumbbell className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
+                  <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Dumbbell className="w-8 h-8 text-black" />
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-4">Metodologia Comprovada</h3>
                   <p className="text-gray-300 text-lg leading-relaxed">
                     Treinos baseados em ciência do exercício, adaptados para sua realidade e objetivos específicos.
@@ -293,32 +193,6 @@ export default function HomePage() {
               </Card>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-yellow-500/10 via-transparent to-yellow-500/10">
-        <div className="container mx-auto px-6 text-center animate-on-scroll opacity-0 translate-y-10 transition-all duration-800">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Pronto para começar sua transformação?
-          </h2>
-
-          <p className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">
-            Os valores dos planos são informados diretamente pelo WhatsApp. Entre em contato e descubra qual plano é
-            ideal para você.
-          </p>
-
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-12 py-6 text-xl group"
-            asChild
-          >
-            <Link href="https://wa.me/55SEUNUMERO">
-              <MessageCircle className="w-6 h-6 mr-3" />
-              Falar com Galli
-              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
         </div>
       </section>
 
@@ -353,7 +227,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800 bg-black">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-400">&copy; 2025 Galli Training. Todos os direitos reservados.</p>
+          <p className="text-gray-400">&copy; 2025 AMG Pro. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

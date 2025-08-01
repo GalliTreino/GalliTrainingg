@@ -27,22 +27,25 @@ export default function TreinosPage() {
     setSuccess(false)
 
     try {
-      const caminhoHTML = `/treinos/${codigo.trim()}.html`
+      const caminhoPDF = `/treinos/${codigo.trim()}.pdf`
 
-      // Busca o arquivo HTML do treino
-      const response = await fetch(caminhoHTML)
+      // Criar link temporário para abrir o PDF
+      const linkTemporario = document.createElement("a")
+      linkTemporario.href = caminhoPDF
+      linkTemporario.target = "_blank"
+      linkTemporario.rel = "noopener noreferrer"
+
+      // Verificar se o PDF existe
+      const response = await fetch(caminhoPDF, { method: "HEAD" })
 
       if (response.ok) {
-        const html = await response.text()
+        // Simular clique no link para abrir o PDF
+        document.body.appendChild(linkTemporario)
+        linkTemporario.click()
+        document.body.removeChild(linkTemporario)
 
-        // Abre o treino em uma nova janela
-        const novaJanela = window.open("", "_blank")
-        if (novaJanela) {
-          novaJanela.document.write(html)
-          novaJanela.document.close()
-          setSuccess(true)
-          setCodigo("")
-        }
+        setSuccess(true)
+        setCodigo("")
       } else {
         setError("Treino não encontrado. Verifique o código e tente novamente.")
       }
@@ -129,7 +132,7 @@ export default function TreinosPage() {
               <Alert className="border-green-500/50 bg-green-500/10">
                 <CheckCircle className="h-4 w-4 text-green-400" />
                 <AlertDescription className="text-green-300">
-                  Treino encontrado! O PDF foi aberto em uma nova aba.
+                  Treino encontrado! O PDF foi aberto em uma nova aba para visualização.
                 </AlertDescription>
               </Alert>
             )}
@@ -139,7 +142,7 @@ export default function TreinosPage() {
                 <Heart className="w-4 h-4" />
                 <span className="text-sm font-medium">Obrigado por fazer parte do nosso time</span>
               </div>
-              <p className="text-gray-400 text-sm">Em caso de dúvidas, entre em contato via WhatsApp</p>
+              <p className="text-gray-400 text-sm">Em caso de dúvidas, entre em contato conosco</p>
             </div>
           </CardContent>
         </Card>

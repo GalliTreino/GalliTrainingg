@@ -21,13 +21,22 @@ function buscarTreino() {
   // Caminho até o arquivo PDF do treino
   const caminhoPDF = `./treinos/${codigo}.pdf`
 
-  // Verificar se o PDF existe antes de abrir
+  // Criar link temporário para abrir o PDF
+  const linkTemporario = document.createElement("a")
+  linkTemporario.href = caminhoPDF
+  linkTemporario.target = "_blank"
+  linkTemporario.rel = "noopener noreferrer"
+
+  // Verificar se o PDF existe
   fetch(caminhoPDF, { method: "HEAD" })
     .then((response) => {
       if (response.ok) {
-        // Abrir PDF em nova aba
-        window.open(caminhoPDF, "_blank")
-        mostrarAlerta("Treino encontrado! O PDF foi aberto em uma nova aba.", "success")
+        // Simular clique no link para abrir o PDF
+        document.body.appendChild(linkTemporario)
+        linkTemporario.click()
+        document.body.removeChild(linkTemporario)
+
+        mostrarAlerta("Treino encontrado! O PDF foi aberto em uma nova aba para visualização.", "success")
 
         // Limpar input
         document.getElementById("codigoInput").value = ""
