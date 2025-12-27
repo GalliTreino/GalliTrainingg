@@ -86,9 +86,9 @@ export default function HomePage() {
           </Badge>
 
           <h1 className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent tracking-tight">
-            AMG
+            Galli
             <br />
-            PRO
+            Training
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
