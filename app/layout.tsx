@@ -15,7 +15,7 @@ const anton = Anton({
 })
 
 export const metadata: Metadata = {
-  title: "AMG Pro - Consultoria Online de Treinos",
+  title: "Galli Training - Consultoria Online de Treinos",
   description:
     "Consultoria online para formação de treinos personalizados. Acompanhamento dedicado para você alcançar seus objetivos.",
   keywords: "treino, consultoria, fitness, personal trainer, exercícios, musculação",
