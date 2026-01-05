@@ -29,17 +29,14 @@ export default function TreinosPage() {
     try {
       const caminhoPDF = `/treinos/${codigo.trim()}.pdf`
 
-      // Criar link temporário para abrir o PDF
       const linkTemporario = document.createElement("a")
       linkTemporario.href = caminhoPDF
       linkTemporario.target = "_blank"
       linkTemporario.rel = "noopener noreferrer"
 
-      // Verificar se o PDF existe
       const response = await fetch(caminhoPDF, { method: "HEAD" })
 
       if (response.ok) {
-        // Simular clique no link para abrir o PDF
         document.body.appendChild(linkTemporario)
         linkTemporario.click()
         document.body.removeChild(linkTemporario)
@@ -64,12 +61,12 @@ export default function TreinosPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,215,0,0.05)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,94,204,0.08)_0%,transparent_70%)]" />
 
       <div className="w-full max-w-md relative z-10">
         {/* Back Button */}
         <div className="mb-6">
-          <Button variant="ghost" className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 p-0" asChild>
+          <Button variant="ghost" className="text-blue-400 hover:text-blue-300 hover:bg-blue-600/10 p-0" asChild>
             <Link href="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Voltar ao início
@@ -77,13 +74,13 @@ export default function TreinosPage() {
           </Button>
         </div>
 
-        <Card className="bg-gradient-to-br from-gray-900/90 to-black/90 border-yellow-500/20 backdrop-blur-sm shadow-2xl">
+        <Card className="bg-gradient-to-br from-gray-900/90 to-black/90 border-blue-600/20 backdrop-blur-sm shadow-2xl">
           <CardHeader className="text-center pb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <FileText className="w-8 h-8 text-black" />
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <FileText className="w-8 h-8 text-white" />
             </div>
 
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               Encontre seu treino
             </CardTitle>
 
@@ -98,7 +95,7 @@ export default function TreinosPage() {
                 value={codigo}
                 onChange={(e) => setCodigo(e.target.value)}
                 onKeyPress={handleKeyPress}
-                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-400 focus:border-yellow-500 focus:ring-yellow-500/20 h-12 text-lg"
+                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500/20 h-12 text-lg"
                 disabled={loading}
               />
             </div>
@@ -106,11 +103,11 @@ export default function TreinosPage() {
             <Button
               onClick={buscarTreino}
               disabled={loading || !codigo.trim()}
-              className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold h-12 text-lg group"
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold h-12 text-lg group"
             >
               {loading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin mr-2" />
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
                   Buscando...
                 </>
               ) : (
@@ -138,7 +135,7 @@ export default function TreinosPage() {
             )}
 
             <div className="text-center pt-4 border-t border-gray-700">
-              <div className="flex items-center justify-center gap-2 text-yellow-400 mb-2">
+              <div className="flex items-center justify-center gap-2 text-blue-400 mb-2">
                 <Heart className="w-4 h-4" />
                 <span className="text-sm font-medium">Obrigado por fazer parte do nosso time</span>
               </div>
@@ -148,12 +145,12 @@ export default function TreinosPage() {
         </Card>
 
         {/* Tips Card */}
-        <Card className="mt-6 bg-gradient-to-r from-yellow-500/10 to-transparent border-yellow-500/20">
+        <Card className="mt-6 bg-gradient-to-r from-blue-600/15 to-transparent border-blue-600/20">
           <CardContent className="p-4">
             <div className="flex items-start gap-3">
-              <FileText className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+              <FileText className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="text-yellow-400 font-semibold text-sm mb-1">Dica</h3>
+                <h3 className="text-blue-400 font-semibold text-sm mb-1">Dica</h3>
                 <p className="text-gray-300 text-sm">
                   Seu treino será aberto em uma nova aba. Salve a página para acessar offline.
                 </p>

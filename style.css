@@ -5,22 +5,27 @@
   box-sizing: border-box;
 }
 
+/* Updated color scheme based on logo: royal blue, dark gray, black */
 :root {
-  --primary-gold: #ffd700;
-  --primary-gold-dark: #e6c200;
+  --primary-blue: #1e5ecc;
+  --primary-blue-dark: #1548a8;
+  --primary-blue-light: #2d6fe0;
   --bg-black: #000000;
   --bg-dark: #0a0a0a;
-  --bg-gray: #111111;
-  --bg-gray-light: #1a1a1a;
+  --bg-gray: #1a1a1a;
+  --bg-gray-light: #2a2a2a;
   --text-white: #ffffff;
   --text-gray: #cccccc;
   --text-gray-dark: #888888;
-  --border-gold: rgba(255, 215, 0, 0.2);
-  --shadow-gold: rgba(255, 215, 0, 0.3);
+  --text-charcoal: #3f3f46;
+  --border-blue: rgba(30, 94, 204, 0.3);
+  --shadow-blue: rgba(30, 94, 204, 0.4);
+  --accent-blue-glow: rgba(30, 94, 204, 0.2);
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  /* Updated font to bold geometric sans-serif matching logo */
+  font-family: "Montserrat", sans-serif;
   background: linear-gradient(135deg, var(--bg-black) 0%, var(--bg-dark) 50%, var(--bg-black) 100%);
   color: var(--text-white);
   scroll-behavior: smooth;
@@ -54,16 +59,17 @@ body {
   overflow: hidden;
 }
 
+/* Updated gradient colors to blue theme */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 50%, rgba(255, 215, 0, 0.1) 100%);
+  background: linear-gradient(90deg, rgba(30, 94, 204, 0.15) 0%, transparent 50%, rgba(30, 94, 204, 0.15) 100%);
 }
 
 .hero-radial {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(30, 94, 204, 0.2) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -72,33 +78,35 @@ body {
   position: relative;
 }
 
+/* Updated badge colors to blue theme */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(255, 215, 0, 0.2);
-  color: var(--primary-gold);
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  background: rgba(30, 94, 204, 0.2);
+  color: var(--primary-blue-light);
+  border: 1px solid rgba(30, 94, 204, 0.4);
   border-radius: 50px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 24px;
   transition: all 0.3s ease;
 }
 
 .badge:hover {
-  background: rgba(255, 215, 0, 0.3);
+  background: rgba(30, 94, 204, 0.3);
 }
 
+/* Updated hero title with bold font and blue gradient */
 .hero-title {
-  font-family: "Anton", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 24px;
-  background: linear-gradient(135deg, #ffd700 0%, #ffa500 50%, #ffd700 100%);
+  background: linear-gradient(135deg, #1e5ecc 0%, #2d6fe0 50%, #1e5ecc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -113,9 +121,10 @@ body {
   line-height: 1.6;
 }
 
+/* Updated highlight color to blue */
 .highlight {
-  color: var(--primary-gold);
-  font-weight: 600;
+  color: var(--primary-blue-light);
+  font-weight: 700;
 }
 
 .hero-buttons {
@@ -140,7 +149,7 @@ body {
   padding: 16px 32px;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   transition: all 0.3s ease;
   border: none;
@@ -149,26 +158,27 @@ body {
   overflow: hidden;
 }
 
+/* Updated button colors to blue gradient */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
-  color: var(--bg-black);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  color: var(--text-white);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-gold-dark) 0%, #ff8c00 100%);
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 25px var(--shadow-blue);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--primary-gold);
-  border: 2px solid rgba(255, 215, 0, 0.5);
+  color: var(--primary-blue-light);
+  border: 2px solid rgba(30, 94, 204, 0.5);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 215, 0, 0.1);
-  border-color: var(--primary-gold);
+  background: rgba(30, 94, 204, 0.15);
+  border-color: var(--primary-blue);
 }
 
 .btn-large {
@@ -185,10 +195,11 @@ body {
 }
 
 /* Floating elements */
+/* Updated floating elements to blue glow */
 .floating-element {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 215, 0, 0.1);
+  background: rgba(30, 94, 204, 0.15);
   filter: blur(40px);
   animation: float 6s ease-in-out infinite;
 }
@@ -232,10 +243,12 @@ body {
 }
 
 /* Section Styles */
+/* Updated section title gradient */
 .section-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 24px;
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, var(--text-white) 0%, var(--text-gray) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -277,11 +290,12 @@ body {
   text-align: center;
 }
 
+/* Updated stat number color to blue */
 .stat-number {
   display: block;
   font-size: 2.5rem;
   font-weight: 900;
-  color: var(--primary-gold);
+  color: var(--primary-blue-light);
   line-height: 1;
 }
 
@@ -316,9 +330,10 @@ body {
   }
 }
 
+/* Updated service card border to blue */
 .service-card {
   background: linear-gradient(135deg, var(--bg-gray) 0%, var(--bg-black) 100%);
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--border-blue);
   border-radius: 16px;
   padding: 24px 20px;
   text-align: center;
@@ -338,19 +353,20 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--primary-blue) 50%, transparent 100%);
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 215, 0, 0.4);
-  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+  border-color: rgba(30, 94, 204, 0.6);
+  box-shadow: 0 20px 40px var(--accent-blue-glow);
 }
 
+/* Updated service icon to blue gradient */
 .service-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -366,7 +382,7 @@ body {
 .service-icon .icon {
   width: 28px;
   height: 28px;
-  color: var(--bg-black);
+  color: var(--text-white);
 }
 
 .service-card h3 {
@@ -401,8 +417,9 @@ body {
   gap: 12px;
 }
 
+/* Updated check icon color to blue */
 .check {
-  color: var(--primary-gold);
+  color: var(--primary-blue-light);
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -419,17 +436,18 @@ body {
   justify-content: center;
 }
 
+/* Updated visual glow to blue */
 .visual-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(30, 94, 204, 0.2) 0%, transparent 100%);
   border-radius: 24px;
   filter: blur(60px);
 }
 
 .passion-card {
   background: linear-gradient(135deg, var(--bg-gray) 0%, var(--bg-black) 100%);
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--border-blue);
   border-radius: 16px;
   padding: 32px;
   text-align: center;
@@ -438,10 +456,11 @@ body {
   max-width: 400px;
 }
 
+/* Updated passion icon to blue gradient */
 .passion-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -452,7 +471,7 @@ body {
 .passion-icon .icon {
   width: 32px;
   height: 32px;
-  color: var(--bg-black);
+  color: var(--text-white);
 }
 
 .passion-card h3 {
@@ -468,8 +487,9 @@ body {
 }
 
 /* CTA Section */
+/* Updated CTA section background to blue gradient */
 .cta-section {
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 50%, rgba(255, 215, 0, 0.1) 100%);
+  background: linear-gradient(90deg, rgba(30, 94, 204, 0.1) 0%, transparent 50%, rgba(30, 94, 204, 0.1) 100%);
 }
 
 .cta-content {
@@ -479,8 +499,9 @@ body {
 }
 
 /* Member Section */
+/* Updated member section border to blue */
 .member-section {
-  border-top: 1px solid var(--border-gold);
+  border-top: 1px solid var(--border-blue);
 }
 
 .member-content {

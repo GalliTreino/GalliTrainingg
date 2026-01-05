@@ -6,8 +6,9 @@
 }
 
 :root {
-  --primary-gold: #ffd700;
-  --primary-gold-dark: #e6c200;
+  --primary-blue: #1e5ecc;
+  --primary-blue-dark: #1548a8;
+  --primary-blue-light: #2d6fe0;
   --bg-black: #000000;
   --bg-dark: #0a0a0a;
   --bg-gray: #111111;
@@ -15,14 +16,14 @@
   --text-white: #ffffff;
   --text-gray: #cccccc;
   --text-gray-dark: #888888;
-  --border-gold: rgba(255, 215, 0, 0.2);
-  --shadow-gold: rgba(255, 215, 0, 0.3);
+  --border-blue: rgba(30, 94, 204, 0.3);
+  --shadow-blue: rgba(30, 94, 204, 0.4);
   --success-green: #10b981;
   --error-red: #ef4444;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: linear-gradient(135deg, var(--bg-black) 0%, var(--bg-dark) 50%, var(--bg-black) 100%);
   color: var(--text-white);
   min-height: 100vh;
@@ -41,7 +42,7 @@ body {
 .radial-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(30, 94, 204, 0.08) 0%, transparent 70%);
 }
 
 .container {
@@ -66,23 +67,23 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--primary-gold);
+  color: var(--primary-blue-light);
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
   padding: 8px 0;
 }
 
 .back-link:hover {
-  color: var(--primary-gold-dark);
+  color: var(--primary-blue);
   transform: translateX(-4px);
 }
 
 /* Main Card */
 .treino-card {
   background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--border-blue);
   border-radius: 16px;
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -97,7 +98,7 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--primary-gold) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--primary-blue) 50%, transparent 100%);
 }
 
 .card-header {
@@ -108,7 +109,7 @@ body {
 .icon-container {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -120,7 +121,7 @@ body {
 .icon-container .icon {
   width: 32px;
   height: 32px;
-  color: var(--bg-black);
+  color: var(--text-white);
 }
 
 @keyframes pulse {
@@ -135,9 +136,10 @@ body {
 
 .title {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -175,8 +177,8 @@ body {
 }
 
 .input-field:focus {
-  border-color: var(--primary-gold);
-  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(30, 94, 204, 0.2);
   background: rgba(34, 34, 34, 0.8);
 }
 
@@ -188,8 +190,8 @@ body {
   justify-content: center;
   gap: 8px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, var(--primary-gold) 0%, #ffa500 100%);
-  color: var(--bg-black);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  color: var(--text-white);
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -201,9 +203,9 @@ body {
 }
 
 .btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--primary-gold-dark) 0%, #ff8c00 100%);
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 25px var(--shadow-blue);
 }
 
 .btn:disabled {
@@ -230,8 +232,8 @@ body {
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  border-top: 2px solid var(--bg-black);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid var(--text-white);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -296,8 +298,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: var(--primary-gold);
-  font-weight: 500;
+  color: var(--primary-blue-light);
+  font-weight: 600;
   font-size: 14px;
   margin: 24px 0 8px;
   padding-top: 24px;
@@ -330,8 +332,8 @@ body {
 /* Tips Card */
 .tips-card {
   margin-top: 24px;
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
-  border: 1px solid var(--border-gold);
+  background: linear-gradient(90deg, rgba(30, 94, 204, 0.15) 0%, transparent 100%);
+  border: 1px solid var(--border-blue);
   border-radius: 12px;
   padding: 16px;
 }
@@ -343,13 +345,13 @@ body {
 }
 
 .tip-icon {
-  color: var(--primary-gold);
+  color: var(--primary-blue-light);
   margin-top: 2px;
   flex-shrink: 0;
 }
 
 .tip-content h3 {
-  color: var(--primary-gold);
+  color: var(--primary-blue-light);
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 4px;

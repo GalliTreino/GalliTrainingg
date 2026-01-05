@@ -1,17 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Anton } from "next/font/google"
+import { Montserrat, Poppins } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-montserrat",
 })
 
-const anton = Anton({
-  weight: "400",
+const poppins = Poppins({
+  weight: ["400", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-poppins",
 })
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Consultoria online para formação de treinos personalizados. Acompanhamento dedicado para você alcançar seus objetivos.",
   keywords: "treino, consultoria, fitness, personal trainer, exercícios, musculação",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${anton.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${montserrat.variable} ${poppins.variable} font-sans antialiased`}>{children}</body>
     </html>
   )
 }
